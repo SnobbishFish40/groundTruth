@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DurHack 2025</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>🌾 DurHack 2025 – Farmer Dashboard</h1>
+
+  <form id="geoForm">
+    <input type="text" id="location" placeholder="Enter postcode or place..." required>
+    <button type="submit">Find Coordinates</button>
+  </form>
+
+  <pre id="output"></pre>
+
+  <script>
+    const form = document.getElementById('geoForm');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const query = document.getElementById('location').value;
+      const res = await fetch('/api/geocode', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({query})
+      });
+      const data = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
