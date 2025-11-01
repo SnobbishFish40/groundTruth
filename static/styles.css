@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+  margin: 2rem;
+  background: #f8faf8;
+}
+input, button {
+  padding: 0.5rem;
+  margin: 0.2rem;
+}
+pre {
+  background: #eee;
+  padding: 1rem;
+  border-radius: 8px;
+}
