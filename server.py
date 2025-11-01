@@ -49,4 +49,4 @@ def request_llm_analysis(stats, crop_type):
             {"role": "user", "content": f"Here is a CSV file full of statistical predictions about conditions relating to agricultural success in a region :\n{stats}\nPlease break down clearly what implications this may have on {crop_type} growth in the area."}
         ]
     )
-    return response.content[0].text)
+    return response.content[0].text()
