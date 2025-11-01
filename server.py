@@ -42,10 +42,10 @@ def get_nasa_csv(lat, lon, startDate, endDate):
 
 
 def request_llm_analysis(stats, crop_type):
-   headers = {
+    headers = {
         "Authorization": f"Bearer {LLM_KEY}",
         "Content-Type": "application/json"
-    } 
+    }
 
     data = {
         "model": "anthropic/claude-sonnet-4.5",
@@ -54,7 +54,7 @@ def request_llm_analysis(stats, crop_type):
         ],
         "max_tokens": 300
     }
-    
+ 
     response = requests.post(url, headers=headers, json=data)
 
     return response.json()
