@@ -17,6 +17,10 @@
     <div class="section-1 mainblock">
       <h1 class="text">Environmental Forecast <span>The Farmer's Dashboard</span></h1>
     </div>
+    <div class="midsection mainblock">
+      <h3>Enter your location and crop type so we run analysis on NASA data specified to you...</h3>
+      <p>Please be patient with the response time</p>
+    </div>
     <div class="section-2 mainblock">
       <form id="forecastForm">
         <input type="text" id="postcode" placeholder="Enter postcode..." required>
@@ -24,7 +28,7 @@
         <button type="submit">Get Forecast</button>
       </form>
     </div>
-    <div id="output">
+    <div id="output" class="hidden">
       <input type="text" class="hidden" id="querier" placeholder="Further Questions...">
     </div>
   </main>

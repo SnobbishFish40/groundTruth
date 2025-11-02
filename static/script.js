@@ -38,14 +38,12 @@ form.addEventListener('submit', async (e) => {
       `${report.message}\n\n` +
       `${report.csv}`;
 
-    Output(answer, "LLM")
-    console.log(querier)
-    querier.classList.remove("hidden")
-    // document.getElementById('output').textContent = answer;
-
+    Output(answer, "LLM");
+    console.log(querier);
+    querier.classList.remove("hidden");
+    Out.classList.remove("hidden");
   } catch (err) {
     Output('Error: ' + err.message, "Err")
-    // document.getElementById('output').textContent = 'Error: ' + err.message;
   } finally {
     button.disabled = false;
   }

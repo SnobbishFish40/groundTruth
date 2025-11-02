@@ -1,5 +1,4 @@
 :root {
-  rgba(196, 164, 55, 0.3);
   --main-2: rgba(42, 64, 51, 0.2);
   --main-3: rgba(10, 5, 5, 0.4);
   --nav-height: 12vh;
@@ -9,6 +8,7 @@
 html {
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: hidden;
 }
 
 body {
@@ -54,10 +54,8 @@ body::-webkit-scrollbar { background: rgb(0,0,0); width: 0; }
   position: fixed; top: 0;
   width: 100%; height: var(--nav-height);
   background-color: var(--main-2);
-  border-bottom: 1.5px solid var(--main-1);
   backdrop-filter: blur(2px);
   h1 { 
-    color: var(--main-1);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 }
@@ -92,7 +90,7 @@ main {
 
 
 .section-1 {
-  height: 50vh;
+  height: 30vh;
   h1 {
     font-family: monospace;
     font-size: 4rem;
@@ -101,6 +99,18 @@ main {
       font-size: 0.66em;
       font-style: italic;
     }
+  }
+}
+
+.midsection {
+  font-style: italic;
+  width: 40vw;
+  margin: auto;
+  text-align: center;
+  p { 
+    display: block; 
+    font-size: 0.8em;
+    color: rgba(200, 210, 210, 0.5)
   }
 }
 
@@ -142,7 +152,7 @@ input, button {
 
 
 #output {
-  content: "3ed";
+  content: "";
   position: relative;
   top: 2.5vh; left: 2.5vw;
   background: rgba(10, 20, 20, 0.7);
@@ -159,14 +169,14 @@ input, button {
   background: rgba(45, 124, 55, 0.6);
   color: floralwhite;
   border-top-left-radius: 0 !important;
-  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 .query {
   background: var(--main-3);
   color: floralwhite;
   border-top-right-radius: 0 !important;
-  margin-right: 10vw;
+  margin-left: 10vw;
 }
 
 #querier {
