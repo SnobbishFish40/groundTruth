@@ -5,7 +5,7 @@ import pandas as pd
 # CONFIGURATION - Change these to analyze different properties
 # =============================================================================
 TARGET_COLUMN = 'T2M'  # Change this to any column you want to forecast
-                               # Examples: 'T2M', 'RH2M', 'WS2M', 'PS', etc.
+                               # Examples: 'T2M', 'PRECTOTCORR', 'GWETTOP', etc.
 
 PLOT_TITLE = "Temperature Forecast"  # Update title to match your property
 
