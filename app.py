@@ -53,12 +53,11 @@ def submit_request():
     with open(filename, 'w', newline='') as f:
         f.write(data_csv)
 
-    # statistics = run_analysis(filename)
-
-
-    llm_response = request_llm_analysis(data_csv, crop)
+    statistics = run_analysis(filename)
+    print(statistics)
+    llm_response = request_llm_analysis(statistics, crop)
     print(llm_response)
-    return llm_response['choices'][0]['message']['content']
+    return llm_response
 
 
     # Return a clear object

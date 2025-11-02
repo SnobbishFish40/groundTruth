@@ -30,16 +30,10 @@ form.addEventListener('submit', async (e) => {
       body: JSON.stringify({ lat, lon, crop })
     });
     if (!res.ok) throw new Error('Submit failed');
-    const report = await res.json();
-
-    const answer =
-      `The data for ${loc}\n` +
-      `Latitude: ${lat}, Longitude: ${lon}\n\n` +
-      `${report.message}\n\n` +
-      `${report.csv}`;
-
-    Output(answer, "LLM");
-    console.log(querier);
+    const llm = await res.json();
+    console.log("LLM:", llm.choices[0].message.content)
+    const report = llm.choices[0].message.content
+    Output(report, "LLM");
     querier.classList.remove("hidden");
     Out.classList.remove("hidden");
   } catch (err) {
