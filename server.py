@@ -36,7 +36,8 @@ def get_nasa_csv(lat, lon, startDate, endDate):
     
     return response.text
 
-def request_llm_analysis(stats, crop_type):
+def request_llm_analysis(stats, crop):
+    url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {LLM_KEY}",
         "Content-Type": "application/json"
@@ -44,7 +45,7 @@ def request_llm_analysis(stats, crop_type):
 
     data = {
         "model": "anthropic/claude-sonnet-4.5",
-        "message": [
+        "messages": [
             {"role": "user", "content": f"Attached is some data and predictions based on that data about conditions in a specific region in which someone wants to grow some {crop}. Please analyse the predictions and explain what the implications of these future conditions could be. {stats}"}
         ],
         "max_tokens": 300
