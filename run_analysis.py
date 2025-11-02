@@ -18,6 +18,7 @@ def run_analysis(filepath: str, forecast_periods: int = 365):
     columns = pd.read_csv(filepath, nrows=0, skiprows=header_end_line).columns.tolist()
     targets = columns[2:]  # List of columns to forecast: 'T2M', 'GWETTOP', 'PRECTOTCORR'
     #titles = ["Temperature Forecast"] #, "Surface Soil Wetness Forecast", "Precipitation Forecast"]
+    all_forecasts = None  # Will hold the combined DataFrame
 
     for TARGET_COLUMN in targets:
         print(f"Processing {TARGET_COLUMN}...")
@@ -41,7 +42,20 @@ def run_analysis(filepath: str, forecast_periods: int = 365):
         )
         forecaster.fit(prophet_data)
         forecast = forecaster.predict(periods=forecast_periods, frequency='D', include_history=True)
-        return forecast
+
+        # Add forecast columns with property name prefix
+        if all_forecasts is None:
+            # First column - initialize with dates
+            all_forecasts = pd.DataFrame({'ds': forecast['ds']})
+        
+        # Add the forecast values for this property
+        all_forecasts[f'{TARGET_COLUMN}_forecast'] = forecast['yhat'].values
+        all_forecasts[f'{TARGET_COLUMN}_lower'] = forecast['yhat_lower'].values
+        all_forecasts[f'{TARGET_COLUMN}_upper'] = forecast['yhat_upper'].values
+    
+    # Save to CSV
+    all_forecasts.to_csv(output_csv, index=False)
+    return all_forecasts
 
 #run_analysis('precipitation.csv', forecast_periods=365)
 
