@@ -70,6 +70,11 @@ body::-webkit-scrollbar { background: rgb(0,0,0); width: 0; }
   top: 120vh;
 }
 
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 
 /* ------------------------------------------- SETUP DONE --------------------------------------------------------- */
 
@@ -154,11 +159,18 @@ input, button {
   background: rgba(45, 124, 55, 0.6);
   color: floralwhite;
   border-top-left-radius: 0 !important;
+  margin-left: 10vw;
 }
 
 .query {
   background: var(--main-3);
   color: floralwhite;
   border-top-right-radius: 0 !important;
+  margin-right: 10vw;
+}
+
+#querier {
+  background: rgba(128, 128, 128, 0.4);
+  color: whitesmoke;
 }
 

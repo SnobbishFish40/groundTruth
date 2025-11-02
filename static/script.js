@@ -1,5 +1,6 @@
 const form = document.getElementById('forecastForm');
-const Out = document.querySelector("#output")
+const Out = document.querySelector("#output");
+const querier = document.getElementById("querier");
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const button = form.querySelector('button');
@@ -38,6 +39,8 @@ form.addEventListener('submit', async (e) => {
       `${report.csv}`;
 
     Output(answer, "LLM")
+    console.log(querier)
+    querier.classList.remove("hidden")
     // document.getElementById('output').textContent = answer;
 
   } catch (err) {
@@ -53,16 +56,5 @@ function Output(msg, typ) {
   const child = document.createElement('div');
   child.textContent = msg;
   child.className = typ;
-  Out.appendChild(child);
+  Out.insertBefore(child, querier);
 }
-
-
-// Translator activation
-let observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') { newTranslate(); }
-  });
-});
-
-observer.observe(Out, { childList: true, subtree: true });
-
