@@ -48,8 +48,13 @@ def submit_request():
 
     # TODO: implement this
     data_csv = get_nasa_csv(lat, lon, start_date, end_date)
-    
-    statistics = run_analysis(data_csv)
+   
+    filename = "nasa_data.csv"
+
+    with open(filename, 'w', newline='') as f:
+        f.write(data_csv)
+
+    statistics = run_analysis(filename)
 
     llm_response = request_llm_analysis(statistics, crop)
 
