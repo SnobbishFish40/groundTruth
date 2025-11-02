@@ -185,7 +185,7 @@ input, button {
 .LLM code { background: rgba(0,0,0,.06); padding: .1rem .35rem; border-radius: 4px; }
 .LLM pre { background: rgba(0,0,0,.06); padding: .8rem; border-radius: 6px; overflow:auto; }
 .LLM {
-  background: rgba(45, 124, 55, 0.6);
+  background: rgba(35, 45, 25, 0.6);
   color: floralwhite;
   border-top-left-radius: 0 !important;
   margin-right: 15vw;
