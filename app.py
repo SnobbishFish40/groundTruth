@@ -54,7 +54,7 @@ def submit_request():
     with open(filename, 'w', newline='') as f:
         f.write(data_csv)
 
-    statistics = run_analysis(filename)
+    statistics = run_analysis(filename, 30)
     print(statistics)
     llm_response = request_llm_analysis(statistics, crop, lat, lon)
     llm_text = llm_response['choices'][0]['message']['content']
