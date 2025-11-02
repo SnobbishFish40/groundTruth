@@ -46,7 +46,7 @@ def load_data(filepath: str) -> pd.DataFrame:
         return pd.DataFrame()  # Return empty DataFrame on error
 
 # =============================================================================
-# SECTION 2: DATA PREPROCESSING
+# DATA PREPROCESSING
 # =============================================================================
 
 class DataPreprocessor:
@@ -489,7 +489,7 @@ class DataPreprocessor:
 
 
 # =============================================================================
-# SECTION 3: PROPHET MODEL CONFIGURATION & TRAINING
+# PROPHET MODEL CONFIGURATION & TRAINING
 # =============================================================================
 
 class ProphetForecaster:
@@ -923,7 +923,7 @@ class ProphetForecaster:
 
 
 # =============================================================================
-# SECTION 4: VISUALIZATION
+# VISUALIZATION
 # =============================================================================
 
 class ForecastVisualizer:
@@ -1269,7 +1269,7 @@ class ForecastVisualizer:
 
 
 # =============================================================================
-# SECTION 5: MAIN PIPELINE
+# MAIN PIPELINE
 # =============================================================================
 
 class NASAForecastPipeline:
