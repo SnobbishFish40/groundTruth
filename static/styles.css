@@ -1,5 +1,5 @@
 :root {
-  --main-1: #C4A437;
+  rgba(196, 164, 55, 0.3);
   --main-2: rgba(42, 64, 51, 0.2);
   --main-3: rgba(10, 5, 5, 0.4);
   --nav-height: 12vh;
@@ -54,7 +54,7 @@ body::-webkit-scrollbar { background: rgb(0,0,0); width: 0; }
   position: fixed; top: 0;
   width: 100%; height: var(--nav-height);
   background-color: var(--main-2);
-  border-bottom: 2px solid var(--main-1);
+  border-bottom: 1.5px solid var(--main-1);
   backdrop-filter: blur(2px);
   h1 { 
     color: var(--main-1);
@@ -67,7 +67,7 @@ body::-webkit-scrollbar { background: rgb(0,0,0); width: 0; }
   content: "";
   width: 200px;
   height: 200px;
-  top: 200vh;
+  top: 120vh;
 }
 
 
@@ -128,19 +128,37 @@ main {
       backdrop-filter: blur(5px);
     }
   }
-
-  pre {
-    content: "3ed";
-    position: relative;
-    top: 20vh;
-    background: rgba(10, 20, 20, 0.7);
-    padding: 1rem;
-    border-radius: 8px;
-  }
 }
 
 input, button {
   padding: 0.5rem;
   margin: 0.2rem;
+}
+
+
+#output {
+  content: "3ed";
+  position: relative;
+  top: 2.5vh; left: 2.5vw;
+  background: rgba(10, 20, 20, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+
+  div {
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
+
+.LLM {
+  background: rgba(45, 124, 55, 0.6);
+  color: floralwhite;
+  border-top-left-radius: 0 !important;
+}
+
+.query {
+  background: var(--main-3);
+  color: floralwhite;
+  border-top-right-radius: 0 !important;
 }
 

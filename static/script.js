@@ -1,4 +1,5 @@
 const form = document.getElementById('forecastForm');
+const Out = document.querySelector("#output")
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const button = form.querySelector('button');
@@ -36,11 +37,32 @@ form.addEventListener('submit', async (e) => {
       `${report.message}\n\n` +
       `${report.csv}`;
 
-    document.getElementById('output').textContent = answer;
+    Output(answer, "LLM")
+    // document.getElementById('output').textContent = answer;
 
   } catch (err) {
-    document.getElementById('output').textContent = 'Error: ' + err.message;
+    Output('Error: ' + err.message, "Err")
+    // document.getElementById('output').textContent = 'Error: ' + err.message;
   } finally {
     button.disabled = false;
   }
 });
+
+
+function Output(msg, typ) {
+  const child = document.createElement('div');
+  child.textContent = msg;
+  child.className = typ;
+  Out.appendChild(child);
+}
+
+
+// Translator activation
+let observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') { newTranslate(); }
+  });
+});
+
+observer.observe(Out, { childList: true, subtree: true });
+
